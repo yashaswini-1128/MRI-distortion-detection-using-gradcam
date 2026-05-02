@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Yashaswini"
+  given-names: "Y"
+title: "NeuroScan Engine: MRI Distortion Detection with Grad-CAM Interpretation"
+version: 1.0.0
+date-released: 2024-05-02
+url: "https://github.com/yashaswini-1128/MRI-distortion-detection-using-gradcam"

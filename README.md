@@ -1,108 +1,95 @@
-# NeuroScan Engine: MRI Distortion Detection Framework
+# NeuroScan Engine: Advanced MRI Distortion Detection Framework
 
-![NeuroScan Banner](https://img.shields.io/badge/Status-Active-brightgreen)
-![Python](https://img.shields.io/badge/Python-3.9+-blue)
-![React](https://img.shields.io/badge/React-18.x-cyan)
-![FastAPI](https://img.shields.io/badge/FastAPI-Latest-009688)
-
-**NeuroScan Engine** is a robust and explainable CNN framework designed for the automated detection of distortions in MRI scans. Utilizing a ResNet50 backbone and Grad-CAM interpretation, this system provides clinicians with high-accuracy diagnostic support and visual heatmaps to understand model decision-making.
-
----
-
-## 🌟 Key Features
-
-- **Automated Detection**: Rapid identification of MRI distortions using state-of-the-art Deep Learning.
-- **Explainable AI (XAI)**: Integrated Grad-CAM and Grad-CAM++ visualizations for localized diagnostic interpretation.
-- **Modern UI/UX**: A premium, glassmorphism-themed diagnostic workstation built with React and Vite.
-- **Real-time Processing**: Fast backend inference powered by FastAPI and TensorFlow/ResNet50.
-- **Comprehensive Analytics**: Dashboard for viewing historical scans, confidence scores, and diagnostic reports.
-
-## 🛠️ Technology Stack
-
-### Backend
-- **Framework**: FastAPI
-- **Model Architecture**: ResNet50 (Transfer Learning)
-- **Deep Learning**: TensorFlow / Keras
-- **Image Processing**: OpenCV, NumPy
-- **Interpretability**: Grad-CAM, Grad-CAM++
-
-### Frontend
-- **Framework**: React.js (Vite)
-- **Styling**: Vanilla CSS (Custom Glassmorphism Design System)
-- **Icons**: Lucide React
-- **Animations**: CSS Keyframes (X-ray scanning effects)
+<div align="center">
+  <img src="https://img.shields.io/badge/Project-Portfolio-gold?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Field-Medical_AI-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Research-Explainable_AI-green?style=for-the-badge" />
+</div>
 
 ---
 
-## 🚀 Getting Started
+## 🔬 Project Overview
+**NeuroScan Engine** is a high-performance diagnostic suite designed to detect and localize distortions in MRI scans. This project bridges the gap between deep learning complexity and clinical utility by providing interpretable visual feedback through **Grad-CAM** and **Grad-CAM++**.
 
-### Prerequisites
-- Python 3.9+
-- Node.js 16+
-- Git
-
-### Installation
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/mri-distortion-detection.git
-   cd mri-distortion-detection
-   ```
-
-2. **Backend Setup**
-   ```bash
-   cd backend
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   pip install -r requirements.txt
-   python run.py
-   ```
-
-3. **Frontend Setup**
-   ```bash
-   cd ../frontend
-   npm install
-   npm run dev
-   ```
+### 🎯 Objective
+To provide a robust, automated framework for MRI quality assurance, reducing manual inspection time and improving diagnostic reliability in clinical environments.
 
 ---
 
-## 📂 Project Structure
+## 🚀 Portfolio Highlights
+- **Deep Learning Mastery**: Implemented a fine-tuned ResNet50 architecture for high-accuracy medical image classification.
+- **Interpretability (XAI)**: Integrated advanced heatmapping techniques to "see through the eyes of the AI," ensuring clinical trust.
+- **Full-Stack Integration**: Developed a seamless pipeline from a Python/FastAPI backend to a modern, glassmorphism-themed React dashboard.
+- **Data Pipeline**: Designed custom preprocessing routines for medical-grade image data (DICOM/PNG handling).
 
+---
+
+## 🛠️ Technical Architecture
+
+```mermaid
+graph TD
+    A[User Uploads MRI] --> B[FastAPI Backend]
+    B --> C{ResNet50 Model}
+    C --> D[Distortion Prediction]
+    C --> E[Grad-CAM Visualization]
+    D --> F[JSON API Response]
+    E --> G[Heatmap Generation]
+    F --> H[React Dashboard]
+    G --> H
+    H --> I[Diagnostic Report]
+```
+
+### Backend (The Brain)
+- **Framework**: FastAPI (Asynchronous processing)
+- **Logic**: ResNet50 backbone with custom output layers.
+- **Optimization**: Efficient tensor manipulation using NumPy and TensorFlow.
+
+### Frontend (The Workstation)
+- **Framework**: React 18 + Vite
+- **UI Design**: "Aero-Glass" aesthetic with real-time scanning animations.
+- **State Management**: React Context API for global diagnostic state.
+
+---
+
+## 📊 Technical Challenges & Solutions
+- **Challenge**: Model "Black Box" nature in medical fields.
+- **Solution**: Implemented **Grad-CAM++** to provide higher-fidelity localization of distorted regions compared to standard Grad-CAM.
+- **Challenge**: Performance on high-resolution MRI slices.
+- **Solution**: Developed a chunk-based processing and normalization pipeline to maintain speed without losing diagnostic detail.
+
+---
+
+## 🖼️ User Interface
+*(Recommendation: Add screenshots of your Dashboard and Grad-CAM results here)*
+
+| Landing Page | Diagnostic Dashboard |
+| :---: | :---: |
+| [Placeholder for Image] | [Placeholder for Image] |
+
+---
+
+## 📈 Future Roadmap
+- [ ] Support for 3D MRI Volumetric Analysis.
+- [ ] Integration with DICOM servers (PACS).
+- [ ] Multi-class classification (Motion Blur, Metal Artifacts, etc.).
+- [ ] Mobile-responsive diagnostic viewer.
+
+---
+
+## 🤝 Connect with Me
+- **GitHub**: [yashaswini-1128](https://github.com/yashaswini-1128)
+- **LinkedIn**: [Your Profile Name]
+- **Email**: [your.email@example.com]
+
+---
+
+### 📝 Citation
+If you use this work in your research, please cite:
 ```text
-├── backend/            # FastAPI Server & ML Inference
-│   ├── app/            # Core logic & API routes
-│   ├── weights/        # Trained ResNet50 models
-│   └── run.py          # Entry point
-├── frontend/           # React Web Application
-│   ├── src/            # Components, Pages, & Assets
-│   └── public/         # Static files
-├── training/           # Notebooks & scripts for model training
-└── README.md           # Documentation
+Yashaswini. (2024). NeuroScan Engine: A Robust and Explainable CNN Framework for Automated MRI Distortion Detection.
 ```
 
 ---
-
-## 📊 Methodology
-
-The system employs a multi-stage pipeline:
-1. **Preprocessing**: Normalization and augmentation of MRI slices.
-2. **Feature Extraction**: ResNet50 pre-trained on ImageNet, fine-tuned on MRI distortion datasets.
-3. **Inference**: Binary/Multi-class classification of scans.
-4. **Localization**: Grad-CAM heatmaps generated from the final convolutional layer to highlight "distorted" regions.
-
----
-
-## 📜 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-## 👥 Authors
-
-- **Yashaswini** - *Initial Work* - [@yourgithub](https://github.com/yourgithub)
-
----
-
-*This project was developed as part of a B.Tech Final Year project.*
+<div align="center">
+  <sub>Built with ❤️ for the Medical AI Community</sub>
+</div>
