@@ -90,6 +90,3 @@ Yashaswini. (2024). NeuroScan Engine: A Robust and Explainable CNN Framework for
 ```
 
 ---
-<div align="center">
-  <sub>Built with ❤️ for the Medical AI Community</sub>
-</div>
