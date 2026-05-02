@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* NeuroScan Engine - Sophisticated Diagnostic Palette */
+  --bg-main: #060914;
+  /* Deepest Charcoal-Navy */
+  --bg-darker: #04060c;
+  --bg-card: rgba(10, 15, 30, 0.7);
+  --bg-card-hover: rgba(15, 22, 45, 0.8);
+
+  /* Innovation Accents */
+  --accent-primary: #00f2ff;
+  /* Cyber Cyan */
+  --accent-secondary: #00e0ff;
+  --accent-tertiary: #10b981;
+  /* Success Green */
+  --accent-gradient: linear-gradient(135deg, #00f2ff 0%, #0077ff 100%);
+  --accent-glow: rgba(0, 242, 255, 0.15);
+
+  /* Status Colors */
+  --status-clean: #10b981;
+  --status-clean-bg: rgba(16, 185, 129, 0.1);
+  --status-anomaly: #f43f5e;
+  --status-anomaly-bg: rgba(244, 63, 94, 0.1);
+
+  /* Typography */
+  --text-main: #f8fafc;
+  --text-muted: #64748b;
+  --font-primary: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Outfit', system-ui, sans-serif;
+
+  /* Borders & Shadows */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-accent: rgba(0, 242, 255, 0.3);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px rgba(0, 242, 255, 0.1);
+}
+
+body {
+  background: var(--bg-main);
+  background-image: var(--bg-gradient);
+  color: var(--text-main);
+  font-family: var(--font-primary);
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  box-shadow: var(--shadow-glass);
+  transition: all 0.3s ease;
+}
+
+.glass-panel:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.premium-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-glass);
+}
+
+.premium-button {
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.premium-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+/* High-tech Animations */
+.scanning-animation {
+  width: 100%;
+  height: 4px;
+  background: var(--accent-primary);
+  box-shadow: 0 0 20px var(--accent-primary), 0 0 40px var(--accent-primary);
+  position: absolute;
+  z-index: 10;
+  border-radius: 2px;
+  animation: scanLoop 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes scanLoop {
+  0% {
+    top: 0%;
+    opacity: 0;
+    filter: hue-rotate(0deg);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    filter: hue-rotate(45deg);
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Innovative Grid Background */
+.bg-grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
+  mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%);
+}
+
+.bg-blur-blob {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: var(--accent-glow);
+  filter: blur(150px);
+  border-radius: 50%;
+  z-index: -2;
+  opacity: 0.3;
+  animation: blobMove 25s infinite alternate ease-in-out, pulse 10s infinite alternate ease-in-out;
+}
+
+.glass-panel-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.03),
+      transparent);
+  animation: shimmer 8s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes blobMove {
+  from {
+    transform: translate(-10%, -10%);
+  }
+
+  to {
+    transform: translate(20%, 10%);
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0.4;
+    transform: scale(1.2);
+  }
+}
+
+.scanning-animation-v2 {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(0, 242, 255, 0) 10%,
+      rgba(0, 242, 255, 1) 50%,
+      rgba(0, 242, 255, 0) 90%,
+      transparent 100%);
+  box-shadow:
+    0 0 15px rgba(0, 242, 255, 0.8),
+    0 0 30px rgba(0, 242, 255, 0.4);
+  position: absolute;
+  left: 0;
+  z-index: 30;
+  pointer-events: none;
+  animation: scanLoopV2 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes scanLoopV2 {
+  0% {
+    top: 0%;
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+.scan-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 4px;
+  pointer-events: none;
+  opacity: 0.2;
+}
